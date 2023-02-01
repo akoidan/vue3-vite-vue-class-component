@@ -1,11 +1,29 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <hello-world/>
+  <hey-world/>
+  <comp-world/>
 </template>
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
+
+<script lang="ts">
+
 import HelloWorld from './components/HelloWorld.vue'
+import HeyWorld from './components/HeyWorld.vue'
+import CompWorld from './components/CompWorld.vue'
+import {Vue} from './vue-class-component/vue';
+import {Options} from './vue-class-component'
+
+// Define the component in class-style
+@Options({
+  components: {
+    HelloWorld,
+    HeyWorld,
+    CompWorld,
+  }
+})
+export default class App extends Vue {
+
+}
 </script>
 <style>
 #app {
