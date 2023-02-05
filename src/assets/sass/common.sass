@@ -1,0 +1,15 @@
+// all libraries sass should be imported here
+// $FontPathOpenSans: "npm-font-open-sans/fonts" !default
+// @import "npm-font-open-sans/open-sans.scss"
+@use "@fontsource/roboto/scss/mixins" as Roboto
+
+@include Roboto.fontFace($weight: 400, $fontDir: "@fontsource/roboto/files")
+@include Roboto.fontFace($weight: 500, $fontDir: "@fontsource/roboto/files")
+@include Roboto.fontFace($weight: 700, $fontDir: "@fontsource/roboto/files")
+
+*
+  box-sizing: border-box
+
+a, a:visited, a:hover, a:active
+  color: inherit
+  text-decoration: none

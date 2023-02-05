@@ -4,6 +4,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "types": ["cypress"],
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
@@ -19,6 +20,6 @@
     "skipLibCheck": false
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"],
-  "exclude": ["src/**/*.cy.ts", "src/stories"],
+  "exclude": ["src/**/*.cy.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

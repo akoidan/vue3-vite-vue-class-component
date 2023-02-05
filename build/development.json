@@ -1,0 +1,5 @@
+{
+  "BACKEND_ADDRESS": "https://dummyjson.com",
+  "IS_DEBUG": true,
+  "PUBLIC_PATH": null
+}

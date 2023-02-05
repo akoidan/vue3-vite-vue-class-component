@@ -1,13 +1,8 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import {defineConfig,} from "vite";
+import {getConsts} from "./build/utils";
+import {getConfig} from "./build/vite";
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [vue()],
-  build: {
-    minify: false,
-  },
-  server: {
-    port: 3001,
-  }
-})
+export default defineConfig(async() => {
+  const consts = await getConsts();
+  return getConfig(consts);
+});
