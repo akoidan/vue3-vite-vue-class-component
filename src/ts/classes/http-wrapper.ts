@@ -80,7 +80,7 @@ export class HttpWrapper {
     body: BodyInit | null,
     data: ParamsCommon,
   ): Promise<T> {
-    const formattedUrl = `${this.backendUrl}/v1${data.url}${urlParams}`;
+    const formattedUrl = `${this.backendUrl}${data.url}${urlParams}`;
     const result = await fetch(formattedUrl, {
       method,
       mode: "cors",
@@ -120,7 +120,9 @@ export class HttpWrapper {
   }
 
   private getAuthHeader(authorization: string | undefined): Record<string, string> {
-    const headers: Record<string, string> = {};
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
     if (authorization) {
       headers.Authorization = `Bearer ${authorization}`;
     }

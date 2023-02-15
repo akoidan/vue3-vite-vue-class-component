@@ -11,7 +11,6 @@ import {mixins} from "vue-class-component";
 import {DefaultStoreMixin} from "@/ts/store/default/default-store-instance";
 
 @Component({
-  name: "App",
   components: {AppGrowls},
 })
 export default class App extends mixins(DefaultStoreMixin) {

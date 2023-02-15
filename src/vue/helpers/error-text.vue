@@ -1,5 +1,5 @@
 <template>
-  <div class="error" v-show="error">
+  <div v-show="error" class="error">
     {{ error }}
   </div>
 </template>
@@ -12,7 +12,6 @@ import {
 } from "vue-property-decorator";
 
 @Component({
-  name: "ErrorText",
 })
 export default class ErrorText extends Vue {
   @Prop() error!: string;

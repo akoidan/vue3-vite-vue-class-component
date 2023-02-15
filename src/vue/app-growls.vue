@@ -9,9 +9,12 @@
 
 <script lang="ts">
 import {Component} from "vue-property-decorator";
-import {GrowlsStoreMixin, GrowlsState} from "@/ts/store/growl/growl-store-instance";
+import {
+  GrowlsState,
+  GrowlsStoreMixin,
+} from "@/ts/store/growl/growl-store-instance";
 import {mixins} from "vue-class-component";
-import {Growl} from "@/ts/types/model/growl-store.type";
+import type {Growl} from "@/ts/types/model/growl-store.type";
 
 @Component({})
 export default class AppGrowls extends mixins(GrowlsStoreMixin) {

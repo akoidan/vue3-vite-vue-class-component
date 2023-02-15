@@ -14,7 +14,15 @@ import {addDirectives} from "@/ts/utils/directives";
 import {pagesPath} from "@/ts/router/pages-path";
 import {growlStore} from "@/ts/store/growl/growl-store-instance";
 import {defaultStore} from "@/ts/store/default/default-store-instance";
-import {api, router} from "@/ts/instances/main-instances";
+import {
+  api,
+  router,
+} from "@/ts/instances/main-instances";
+
+import "vuetify/styles";
+import {createVuetify} from "vuetify";
+import * as components from "vuetify/components";
+import * as directives from "vuetify/directives";
 
 
 const logger: Logger = loggerFactory.getLoggerColor("main", "#007a70");
@@ -32,6 +40,11 @@ function init(): void {
 
   const vue: VueApp = createApp(App);
   vue.mixin(loggerMixin);
+  const vuetify = createVuetify({
+    components,
+    directives,
+  });
+  vue.use(vuetify);
   vue.use(router);
   // required for vuex devtool
   vue.use(vueStore);

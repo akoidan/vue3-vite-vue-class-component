@@ -1,5 +1,5 @@
 <template>
-  <div class="page-onboarding">
+  <div>
     Page not Found
     <a href="/">Go to main page</a>
   </div>
@@ -12,8 +12,6 @@ import {
 } from "vue-property-decorator";
 
 @Component({
-  name: "NotFoundPage",
-  components: {},
 })
 export default class NotFoundPage extends Vue {
 }

@@ -9,7 +9,7 @@ type ValueFilterForKey<T extends InstanceType<ClassType>, U> = {
 export function ApplyGrowlErr<T extends InstanceType<ClassType>>(
   {loadingProperty, errorProperty, allowSpam}: {
     loadingProperty: ValueFilterForKey<T, boolean>;
-    errorProperty: ValueFilterForKey<T, string>;
+    errorProperty: ValueFilterForKey<T, string[]>;
     allowSpam?: true,
   },
 ) {
@@ -22,10 +22,10 @@ export function ApplyGrowlErr<T extends InstanceType<ClassType>>(
       }
       try {
         (this as any)[loadingProperty] = true;
-        (this as any)[errorProperty] = null;
+        (this as any)[errorProperty] = [];
         const a = await original.apply(this, args);
         if (errorProperty) {
-          (this as any)[errorProperty] = "";
+          (this as any)[errorProperty] = [];
         }
         return a;
         // @ts-expect-error: TS1196
@@ -43,7 +43,7 @@ export function ApplyGrowlErr<T extends InstanceType<ClassType>>(
           e = "Unknown error";
         }
         (this as any).$logger.error(`Error during ${propertyKey} {}`, e)();
-        (this as any)[errorProperty] = strError;
+        (this as any)[errorProperty] = [strError];
       } finally {
         if (loadingProperty) {
           (this as any)[loadingProperty] = false;

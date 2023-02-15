@@ -10,6 +10,7 @@ import type {SessionHolder} from "@/ts/types";
 import NotFoundPage from "@/vue/routes/not-found.page.vue";
 import {mainPages} from "@/ts/router/pages/main-pages";
 import {pagesPath} from "@/ts/router/pages-path";
+import {authPages} from "@/ts/router/pages/auth-pages";
 
 export function routerFactory(sessionHolder: SessionHolder): Router {
   const logger: Logger = loggerFactory.getLogger("router"); // eslint-disable-line @typescript-eslint/no-unused-vars
@@ -17,6 +18,7 @@ export function routerFactory(sessionHolder: SessionHolder): Router {
     history: createWebHistory(),
     routes: [
       mainPages,
+      ...authPages,
       {
         path: "/:catchAll(.*)",
         component: NotFoundPage,
@@ -27,7 +29,7 @@ export function routerFactory(sessionHolder: SessionHolder): Router {
   router.beforeEach((to, from, next) => {
     if (to.matched[0]?.meta?.loginRequired && !sessionHolder.sessionToken) {
       logger.log("Session doesn't exist for page {}, redirecting to onboarding page", to.matched[0])();
-      next(pagesPath.main.main); // TODO auth login page
+      next(pagesPath.main.main);
     } else {
       next();
     }
