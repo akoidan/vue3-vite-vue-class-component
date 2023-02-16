@@ -3,8 +3,7 @@ import {
   Mutation,
   VuexModule,
 } from "vuex-module-decorators";
-import type {AuthResponseDTO} from "@/ts/types/dto/auth.dto";
-import {Profile} from "@/ts/types/model/default-store.type";
+import type {Profile} from "@/ts/types/model/default-store.type";
 
 
 @Module({

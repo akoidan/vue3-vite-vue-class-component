@@ -7,8 +7,7 @@
       :type="growl.type"
       :text="growl.text"
       @close="close"
-    >
-    </v-alert>
+    />
   </div>
 </template>
 

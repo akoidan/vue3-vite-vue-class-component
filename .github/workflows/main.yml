@@ -1,0 +1,41 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - 'README.md'
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  # This job is an example of continious integration
+  # It runs test and lints the code
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Cache multiple paths
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache/Cypress
+            yarn-cache
+          key: ${{ runner.os }}-v1-${{ hashFiles('yarn.lock') }}
+      - name: install npm dependencies
+        run: yarn config set cache-folder `pwd`/yarn-cache && yarn install --frozen-lockfile
+      - name: build
+        run: yarn build:test
+      - name: test-cypress
+        run: yarn test:cypress:run
+      - name: eslint
+        run: yarn run lint
+

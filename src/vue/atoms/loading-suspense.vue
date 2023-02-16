@@ -12,7 +12,7 @@ import {
   Prop,
   Vue,
 } from "vue-property-decorator";
-import ErrorText from "@/vue/helpers/error-text.vue";
+import ErrorText from "@/vue/atoms/error-text.vue";
 
 @Component({
   components: {ErrorText}

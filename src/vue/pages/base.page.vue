@@ -10,15 +10,15 @@
     <v-main>
       <router-view/>
     </v-main>
+    <v-footer app>
+      <span>&copy; Andrew Koidan</span>
+    </v-footer>
   </loading-suspense>
 </template>
 
 <script lang="ts">
 import {Component} from "vue-property-decorator";
-import {
-  mixins,
-  Vue,
-} from "vue-class-component";
+import {mixins} from "vue-class-component";
 import NavDrawer from "@/vue/organisms/nav-drawer.vue";
 import {
   DefaultGrowlError,
@@ -26,8 +26,7 @@ import {
 } from "@/ts/mixins/loading-mixin";
 import {DefaultStoreMixin} from "@/ts/store/default/default-store-instance";
 import {ApiMixin} from "@/ts/instances/api-instance";
-import LoadingSuspense from "@/vue/helpers/loading-suspense.vue";
-import {sessionStore} from "@/ts/instances/session-instance";
+import LoadingSuspense from "@/vue/atoms/loading-suspense.vue";
 
 @Component({
   components: {LoadingSuspense, NavDrawer}
@@ -37,9 +36,15 @@ export default class BasePage extends mixins(LoadingMixin, DefaultStoreMixin, Ap
 
   @DefaultGrowlError
   async created(): Promise<void> {
-    this.defaultStore.setProfile(await this.api.getMe());
+    try {
+      this.defaultStore.setProfile(await this.api.getMe());
+    } catch (error) {
+      this.$logger.error("Unable to get signin profile because of {}", error)();
+      await this.$router.push(this.$pagesPath.auth.signIn);
+    }
   }
 }
+
 </script>
 <!-- eslint-disable -->
 <style lang="sass" scoped>

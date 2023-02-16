@@ -12,7 +12,7 @@ export interface PagesPath {
   auth: typeof AuthPath;
 }
 
-export const pagesPath: PagesPath = {
+export const pagesPath: PagesPath = Object.freeze({
   main: MainPath,
   auth: AuthPath,
-};
+});

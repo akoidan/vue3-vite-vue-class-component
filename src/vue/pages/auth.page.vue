@@ -1,31 +1,34 @@
 <template>
-  <v-sheet width="300" class="mx-auto">
-    <v-form validate-on="submit" @submit.prevent="login">
-      <v-text-field
-        v-model="username"
-        :rules="usernameRules"
-        label="Username"
-        required
-      />
+  <v-layout class="align-center justify-center">
+    <v-sheet width="300">
+      <v-form @submit.prevent="login">
+        <v-text-field
+          v-model="username"
+          :rules="rules"
+          label="Username"
+          required
+        />
 
-      <v-text-field
-        v-model="password"
-        type="password"
-        label="Password"
-        :rules="passwordRules"
-        :error-messages="errors"
-        counter
-      />
-      <v-btn
-        type="submit"
-        :loading="loading"
-        class="mt-2"
-        block
-      >
-        Sign in
-      </v-btn>
-    </v-form>
-  </v-sheet>
+        <v-text-field
+          v-model="password"
+          required
+          :rules="rules"
+          type="password"
+          label="Password"
+          :error-messages="errors"
+          counter
+        />
+        <v-btn
+          type="submit"
+          :loading="loading"
+          class="mt-2"
+          block
+        >
+          Sign in
+        </v-btn>
+      </v-form>
+    </v-sheet>
+  </v-layout>
 </template>
 
 <script lang="ts">
@@ -35,7 +38,7 @@ import {
   DefaultGrowlError,
   LoadingMixin,
 } from "@/ts/mixins/loading-mixin";
-import ErrorText from "@/vue/helpers/error-text.vue";
+import ErrorText from "@/vue/atoms/error-text.vue";
 import {DefaultStoreMixin} from "@/ts/store/default/default-store-instance";
 import {ApiMixin} from "@/ts/instances/api-instance";
 import {sessionStore} from "@/ts/instances/session-instance";
@@ -48,21 +51,14 @@ export default class AuthPage extends mixins(LoadingMixin, DefaultStoreMixin, Ap
 
   password: string = "0lelplR";
 
-  usernameRules = [
-    (value: string) => {
-      if (value) {
-        return true;
-      }
-      return "You must enter a first name.";
-    },
-  ];
+  isFormValid: boolean = false;
 
-  passwordRules = [
-    (value: string) => {
+  rules = [
+    (value: string): boolean | string => {
       if (value) {
         return true;
       }
-      return "You must enter a password";
+      return "This field is required";
     },
   ];
 

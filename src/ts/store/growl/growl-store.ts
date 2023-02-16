@@ -5,9 +5,7 @@ import {
   VuexModule,
 } from "vuex-module-decorators";
 import {sleep} from "@/ts/utils/pure-functions";
-import type {
-  Growl,
-} from "@/ts/types/model/growl-store.type";
+import type {Growl} from "@/ts/types/model/growl-store.type";
 import {GrowlType} from "@/ts/types/model/growl-store.type";
 
 

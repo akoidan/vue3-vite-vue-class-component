@@ -1,6 +1,8 @@
 <template>
   <div v-show="error" class="error">
-    {{ error }}
+    <v-alert type="error" icon="$warning">
+      {{ error }}
+    </v-alert>
   </div>
 </template>
 
@@ -19,13 +21,4 @@ export default class ErrorText extends Vue {
 </script>
 
 <style lang="sass" scoped>
-.error
-  color: $color-red
-  letter-spacing: 0.4px
-  font-size: 14px
-
-img
-  position: relative
-  top: 3px
-  width: 20px
 </style>

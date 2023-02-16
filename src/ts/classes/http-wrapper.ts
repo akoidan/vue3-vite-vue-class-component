@@ -121,7 +121,7 @@ export class HttpWrapper {
 
   private getAuthHeader(authorization: string | undefined): Record<string, string> {
     const headers: Record<string, string> = {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json", // eslint-disable-line @typescript-eslint/naming-convention
     };
     if (authorization) {
       headers.Authorization = `Bearer ${authorization}`;
