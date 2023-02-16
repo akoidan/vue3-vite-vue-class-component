@@ -1,6 +1,6 @@
 import {
   mockProfileImage,
-  visitAuthorizedPage
+  visitAuthorizedPage,
 } from "./utils/mocks";
 
 describe("Home page", (): void => {
@@ -10,7 +10,7 @@ describe("Home page", (): void => {
   });
 
   it("Matches screenshot", () => {
-    visitAuthorizedPage('/')
+    visitAuthorizedPage("/");
     cy.wait(300);
     cy.matchScreenshot("default");
   });
@@ -22,13 +22,13 @@ describe("Home page", (): void => {
     cy.contains("Andrew Koidan");
     cy.contains("Users");
     cy.location("pathname").should("eq", "/");
-    cy.get(".mdi-menu").click()
+    cy.get(".mdi-menu").click();
     cy.contains("atuny0@sohu.com");
   });
 
   it("should log out", (): void => {
     visitAuthorizedPage("/");
-    cy.get(".mdi-menu").click()
+    cy.get(".mdi-menu").click();
     cy.contains("Logout").click();
     cy.contains("Sign in");
   });

@@ -20,7 +20,6 @@
         />
         <v-btn
           type="submit"
-          :disabled="!isFormValid"
           :loading="loading"
           class="mt-2"
           block
