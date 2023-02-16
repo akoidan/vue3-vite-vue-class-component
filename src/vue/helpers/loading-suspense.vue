@@ -1,5 +1,7 @@
 <template>
-  <div v-if="loading" class="spinner"/>
+  <div v-if="loading">
+    <v-progress-linear indeterminate/>
+  </div>
   <error-text v-else-if="errors.length" :error="errors[0]"/>
   <slot v-else/>
 </template>

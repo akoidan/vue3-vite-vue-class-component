@@ -4,16 +4,17 @@ import {
   VuexModule,
 } from "vuex-module-decorators";
 import type {AuthResponseDTO} from "@/ts/types/dto/auth.dto";
+import {Profile} from "@/ts/types/model/default-store.type";
 
 
 @Module({
   name: 'default'
 })
 export class DefaultStore extends VuexModule {
-  public profile: AuthResponseDTO | null = null;
+  public profile: Profile | null = null;
 
   @Mutation
-  setProfile(data: AuthResponseDTO | null): void {
+  setProfile(data: Profile | null): void {
     this.profile = data;
   }
 }

@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div>
+    <v-pagination
+      v-model="page"
+      :disabled="loading"
+      :length="total"
+    />
+    <loading-suspense :loading="loading" :errors="errors">
       <v-container fluid>
         <v-row dense>
           <v-col
@@ -31,12 +36,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </div>
-    <v-pagination
-      v-model="page"
-      :disabled="loading"
-      :length="total"
-    />
+    </loading-suspense>
   </div>
 </template>
 
@@ -57,12 +57,15 @@ import type {
   UsersResponseDTO,
 } from "@/ts/types/dto/users.dto";
 import {PAGINATION_SIZE} from "@/ts/utils/consts";
+import LoadingSuspense from "@/vue/helpers/loading-suspense.vue";
 
-@Component({})
+@Component({
+  components: {LoadingSuspense}
+})
 export default class UsersPage extends mixins(LoadingMixin, DefaultStoreMixin, ApiMixin) {
   page: number = 1;
 
-  total: number = 1;
+  total: number = 10 ;
 
   users: UserDTO[] = [];
 

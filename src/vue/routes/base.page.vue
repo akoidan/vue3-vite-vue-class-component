@@ -27,6 +27,7 @@ import {
 import {DefaultStoreMixin} from "@/ts/store/default/default-store-instance";
 import {ApiMixin} from "@/ts/instances/api-instance";
 import LoadingSuspense from "@/vue/helpers/loading-suspense.vue";
+import {sessionStore} from "@/ts/instances/session-instance";
 
 @Component({
   components: {LoadingSuspense, NavDrawer}
