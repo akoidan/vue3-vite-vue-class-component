@@ -175,6 +175,16 @@ class A extends Vue {
 }
 ```
 
+### [vuetify](https://vuetifyjs.com/en/getting-started/installation/)
+
+Vuetify provides sets of UI components with animations, colors and visually pleasant following [Material Design](https://m3.material.io/) specification. Instead of building lots of customization, you can just plug something like below and it will have all the neats.
+
+```vue
+<template>
+  <v-btn/>
+</template>
+```
+
 ### [lines-logger](https://github.com/akoidan/lines-logger)
 
 This wrapper provides a single interface to console.log and displays the origin source file location:
@@ -213,8 +223,3 @@ Cypress policies are:
 
 ### Logging
 Every vue component has injected `.$logger` object, to log something to console use `this.logger.log('Hello {}', {1:'world'})();` Note calling function again in the end. Logger is disabled for production. For more info visit [lines-logger](https://github.com/akoidan/lines-logger)
-
-### API
-Every component has injected `$.api` object. You should do http calls with `$this.$api`. If you prefer redux style you can call http in vuex actions.
-
-
