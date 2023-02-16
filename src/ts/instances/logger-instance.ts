@@ -5,4 +5,4 @@ import {
   LOG_LEVEL_LS,
 } from "@/ts/utils/consts";
 
-export const loggerFactory = new LoggerFactory(localStorage.getItem(LOG_LEVEL_LS) as LogLevel || (IS_DEBUG ? "trace" : "error"));
+export const loggerInstance = new LoggerFactory(localStorage.getItem(LOG_LEVEL_LS) as LogLevel || (IS_DEBUG ? "trace" : "error"));

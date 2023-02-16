@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <v-app>
     <router-view/>
     <app-growls/>
-  </div>
+  </v-app>
 </template>
 <script lang="ts">
 import {Component} from "vue-property-decorator";

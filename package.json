@@ -85,9 +85,7 @@
     "vue-tsc": "^0.40.2"
   },
   "dependencies": {
-    "@fontsource/asap": "^4.5.8",
-    "@fontsource/montserrat": "^4.5.12",
-    "@fontsource/roboto": "^4.5.8",
+    "@mdi/font": "^7.1.96",
     "is-mobile": "3.1.1",
     "lines-logger": "^2.1.2",
     "lodash.debounce": "^4.0.8",

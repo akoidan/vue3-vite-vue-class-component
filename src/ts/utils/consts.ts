@@ -7,3 +7,4 @@ export const {
 
 
 export const LOG_LEVEL_LS = "LOG_LEVEL_LS";
+export const PAGINATION_SIZE = 10;

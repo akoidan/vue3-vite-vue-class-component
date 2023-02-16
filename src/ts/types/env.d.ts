@@ -23,7 +23,6 @@ declare global {
 
 declare module "@vue/runtime-core" {
   export interface ComponentCustomProperties {
-    $api: Api;
     $logger: Logger;
     $pagesPath: PagesPath;
   }

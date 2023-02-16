@@ -1,10 +1,16 @@
 /* eslint-disable max-lines */
 
-
 import {HttpWrapper} from "@/ts/classes/http-wrapper";
 import type {SessionHolder} from "@/ts/types";
-import type {BranchDTO} from "@/ts/types/dto/branche.dto";
-import type {AuthRequestDTO} from "@/ts/types/dto/auth.dto";
+import type {
+  AuthRequestDTO,
+  AuthResponseDTO,
+} from "@/ts/types/dto/auth.dto";
+import type {
+  UsersResponseDTO,
+  UsersRequestDTO,
+  UserDTO,
+} from "@/ts/types/dto/users.dto";
 
 export class Api {
   private readonly httpWrapper: HttpWrapper;
@@ -16,22 +22,26 @@ export class Api {
     this.httpWrapper = new HttpWrapper(backendUrl);
   }
 
-  public async getBranches(): Promise<BranchDTO[]> {
+  public async getUsers(queryParams: UsersRequestDTO): Promise<UsersResponseDTO> {
     return this.httpWrapper.get({
-      url: "/branches",
+      url: "/auth/users",
+      queryParams,
+      authorization: this.sessionStorage.sessionToken!,
     });
   }
 
-  public async login(body: AuthRequestDTO): Promise<AuthRequestDTO> {
+
+  public async getMe(): Promise<UserDTO> {
+    return this.httpWrapper.get({
+      url: "/auth/user/1",
+      authorization: this.sessionStorage.sessionToken!,
+    });
+  }
+
+  public async login(body: AuthRequestDTO): Promise<AuthResponseDTO> {
     return this.httpWrapper.post({
       url: "/auth/login",
       body,
-    });
-  }
-
-  public async refreshToken(): Promise<any> {
-    return this.httpWrapper.get<any>({
-      url: "/test",
     });
   }
 }

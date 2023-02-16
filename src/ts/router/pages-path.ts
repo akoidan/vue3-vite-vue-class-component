@@ -1,5 +1,6 @@
 enum MainPath {
-  main = "/",
+  home = "/",
+  users = "/users",
 }
 
 enum AuthPath {

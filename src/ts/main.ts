@@ -5,7 +5,7 @@ import * as runtimeConsts from "@/ts/utils/runtime-consts";
 import App from "@/vue/app.vue";
 import {createApp} from "vue";
 import type {Logger} from "lines-logger";
-import {loggerFactory} from "@/ts/instances/logger-factory";
+
 import type {App as VueApp} from "@vue/runtime-core";
 import {loggerMixin} from "@/ts/mixins/logger-mixin";
 import {vueStore} from "@/ts/store/vue-store";
@@ -14,17 +14,17 @@ import {addDirectives} from "@/ts/utils/directives";
 import {pagesPath} from "@/ts/router/pages-path";
 import {growlStore} from "@/ts/store/growl/growl-store-instance";
 import {defaultStore} from "@/ts/store/default/default-store-instance";
-import {
-  api,
-  router,
-} from "@/ts/instances/main-instances";
 
 import {createVuetify} from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
+import {routerFactory} from "@/ts/router/router-factory";
+import {loggerInstance} from "@/ts/instances/logger-instance";
+import {sessionStore} from "@/ts/instances/session-instance";
+import {api} from "@/ts/instances/api-instance";
 
 
-const logger: Logger = loggerFactory.getLoggerColor("main", "#007a70");
+const logger: Logger = loggerInstance.getLoggerColor("main", "#007a70");
 logger.log(`Evaluating main script ${constants.GIT_HASH}`)();
 
 
@@ -44,11 +44,11 @@ function init(): void {
     directives,
   });
   vue.use(vuetify);
+  const router = routerFactory(sessionStore);
   vue.use(router);
   // required for vuex devtool
   vue.use(vueStore);
   addDirectives(vue);
-  vue.config.globalProperties.$api = api;
   vue.config.globalProperties.$pagesPath = pagesPath;
   vue.config.errorHandler = (err, vm, info): boolean => {
     logger.error("Error occurred in vue component err: '{}', vm '{}', info '{}'", err, vm, info)();

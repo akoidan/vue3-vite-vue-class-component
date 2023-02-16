@@ -1,7 +1,7 @@
 import type {Logger} from "lines-logger";
-import {loggerFactory} from "@/ts/instances/logger-factory";
 import type {VueBase} from "vue-class-component";
 import type {ComponentOptions} from "vue";
+import {loggerInstance} from "@/ts/instances/logger-instance";
 
 /* eslint-disable */
 export const loggerMixin = {
@@ -22,7 +22,7 @@ export const loggerMixin = {
         if (this.id) {
           name += `:${this.id}`;
         }
-        this.__logger = loggerFactory.getLoggerColor(name, "#35495e");
+        this.__logger = loggerInstance.getLoggerColor(name, "#35495e");
       }
       return this.__logger;
     },

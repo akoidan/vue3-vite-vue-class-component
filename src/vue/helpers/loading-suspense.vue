@@ -1,6 +1,6 @@
 <template>
   <div v-if="loading" class="spinner"/>
-  <error-text v-else-if="error" :error="error"/>
+  <error-text v-else-if="errors.length" :error="errors[0]"/>
   <slot v-else/>
 </template>
 
@@ -17,7 +17,7 @@ import ErrorText from "@/vue/helpers/error-text.vue";
 })
 export default class LoadingSuspense extends Vue {
   @Prop()
-  error!: string;
+  errors!: string[];
 
   @Prop()
   loading!: boolean;

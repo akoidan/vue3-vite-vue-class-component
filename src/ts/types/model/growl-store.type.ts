@@ -1,5 +1,5 @@
 export enum GrowlType {
-  SUCCESS = "growl-success", INFO = "growl-info", ERROR = "growl-error",
+  SUCCESS = "success", INFO = "info", ERROR = "error", WARNING = "warning",
 }
 
 export interface Growl {

@@ -1,4 +1,3 @@
-import {loggerFactory} from "@/ts/instances/logger-factory";
 import type {Logger} from "lines-logger";
 import type {
   DeleteParams,
@@ -8,6 +7,7 @@ import type {
   PostParams,
   PutParams,
 } from "@/ts/types/component/http-wrapper.type";
+import {loggerInstance} from "@/ts/instances/logger-instance";
 
 
 export class HttpWrapper {
@@ -22,7 +22,7 @@ export class HttpWrapper {
   constructor(
     private readonly backendUrl: string,
   ) {
-    this.logger = loggerFactory.getLogger("http");
+    this.logger = loggerInstance.getLogger("http");
   }
 
   public async get<T>(data: GetParams): Promise<T> {

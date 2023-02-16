@@ -3,17 +3,17 @@ import {
   Mutation,
   VuexModule,
 } from "vuex-module-decorators";
-import type {Profile} from "@/ts/types/model/default-store.type";
+import type {AuthResponseDTO} from "@/ts/types/dto/auth.dto";
 
 
 @Module({
   name: 'default'
 })
 export class DefaultStore extends VuexModule {
-  public profile: Profile | null = null;
+  public profile: AuthResponseDTO | null = null;
 
   @Mutation
-  setProfile(data: Profile | null): void {
+  setProfile(data: AuthResponseDTO | null): void {
     this.profile = data;
   }
 }
