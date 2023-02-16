@@ -33,7 +33,7 @@ jobs:
       - name: install npm dependencies
         run: yarn config set cache-folder `pwd`/yarn-cache && yarn install --frozen-lockfile
       - name: build
-        run: build:test
+        run: yarn build:test
       - name: test-cypress
         run: yarn test:cypress:run
       - name: eslint
