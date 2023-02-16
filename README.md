@@ -1,3 +1,4 @@
+[![Github actions](https://github.com/akoidan/vue3-vite-vue-class-component/workflows/CI/badge.svg)](https://github.com/akoidan/vue3-vite-vue-class-component/actions)
 # Vue-class-component vite
 
 ## Get started
