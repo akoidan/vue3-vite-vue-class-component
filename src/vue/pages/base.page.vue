@@ -18,10 +18,7 @@
 
 <script lang="ts">
 import {Component} from "vue-property-decorator";
-import {
-  mixins,
-  Vue,
-} from "vue-class-component";
+import {mixins} from "vue-class-component";
 import NavDrawer from "@/vue/organisms/nav-drawer.vue";
 import {
   DefaultGrowlError,
@@ -30,7 +27,6 @@ import {
 import {DefaultStoreMixin} from "@/ts/store/default/default-store-instance";
 import {ApiMixin} from "@/ts/instances/api-instance";
 import LoadingSuspense from "@/vue/atoms/loading-suspense.vue";
-import {sessionStore} from "@/ts/instances/session-instance";
 
 @Component({
   components: {LoadingSuspense, NavDrawer}

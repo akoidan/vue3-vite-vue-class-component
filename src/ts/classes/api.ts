@@ -7,9 +7,9 @@ import type {
   AuthResponseDTO,
 } from "@/ts/types/dto/auth.dto";
 import type {
-  UsersResponseDTO,
-  UsersRequestDTO,
   UserDTO,
+  UsersRequestDTO,
+  UsersResponseDTO,
 } from "@/ts/types/dto/users.dto";
 
 export class Api {

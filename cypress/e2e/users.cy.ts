@@ -19,10 +19,10 @@ describe("Users page", (): void => {
   });
 
   it.only("Displays all data", () => {
-    cy.contains("atuny0@sohu.com")
-    cy.contains("ggude7 : MWwlaeWcOoF6")
-    cy.contains("Mavis Schultz")
-    cy.contains("Terrill Hills")
-    cy.get('.v-pagination__list').contains("10");
+    cy.contains("atuny0@sohu.com");
+    cy.contains("ggude7 : MWwlaeWcOoF6");
+    cy.contains("Mavis Schultz");
+    cy.contains("Terrill Hills");
+    cy.get(".v-pagination__list").contains("10");
   });
 });
