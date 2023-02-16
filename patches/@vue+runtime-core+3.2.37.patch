@@ -1,0 +1,13 @@
+diff --git a/node_modules/@vue/runtime-core/dist/runtime-core.d.ts b/node_modules/@vue/runtime-core/dist/runtime-core.d.ts
+index 078590c..0201c21 100644
+--- a/node_modules/@vue/runtime-core/dist/runtime-core.d.ts
++++ b/node_modules/@vue/runtime-core/dist/runtime-core.d.ts
+@@ -1843,7 +1843,7 @@ export declare interface VNode<HostNode = RendererNode, HostElement = RendererEl
+     children: VNodeNormalizedChildren;
+     component: ComponentInternalInstance | null;
+     dirs: DirectiveBinding[] | null;
+-    transition: TransitionHooks<HostElement> | null;
++    transition: TransitionHooks<any> | null;
+     el: HostNode | null;
+     anchor: HostNode | null;
+     target: HostElement | null;

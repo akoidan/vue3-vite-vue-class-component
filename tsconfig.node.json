@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
+    "types": ["cypress", "cypress-match-screenshot"],
     "composite": true,
     "module": "esnext",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
   },
-  "include": ["vite.config.ts"]
+  "include": ["build/*.ts"],
+  "exclude": ["src"]
 }

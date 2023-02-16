@@ -4,6 +4,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "types": ["cypress"],
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
@@ -16,9 +17,9 @@
     "lib": ["esnext", "dom"],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "skipLibCheck": true
+    "skipLibCheck": false
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"],
-  "exclude": ["src/**/*.cy.ts", "src/stories"],
+  "exclude": ["src/**/*.cy.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
