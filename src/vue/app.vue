@@ -5,15 +5,16 @@
   </v-app>
 </template>
 <script lang="ts">
-import {Component} from "vue-property-decorator";
-import AppGrowls from "@/vue/app-growls.vue";
-import {mixins} from "vue-class-component";
-import {DefaultStoreMixin} from "@/ts/store/default/default-store-instance";
+import {
+  Component,
+  Vue,
+} from "vue-property-decorator";
+import AppGrowls from "@/vue/molecules/app-growls.vue";
 
 @Component({
   components: {AppGrowls},
 })
-export default class App extends mixins(DefaultStoreMixin) {
+export default class App extends Vue {
 }
 </script>
 <style lang="sass">

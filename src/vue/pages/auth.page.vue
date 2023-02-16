@@ -35,7 +35,7 @@ import {
   DefaultGrowlError,
   LoadingMixin,
 } from "@/ts/mixins/loading-mixin";
-import ErrorText from "@/vue/helpers/error-text.vue";
+import ErrorText from "@/vue/atoms/error-text.vue";
 import {DefaultStoreMixin} from "@/ts/store/default/default-store-instance";
 import {ApiMixin} from "@/ts/instances/api-instance";
 import {sessionStore} from "@/ts/instances/session-instance";
@@ -49,7 +49,7 @@ export default class AuthPage extends mixins(LoadingMixin, DefaultStoreMixin, Ap
   password: string = "0lelplR";
 
   usernameRules = [
-    (value: string) => {
+    (value: string): boolean | string => {
       if (value) {
         return true;
       }
@@ -58,7 +58,7 @@ export default class AuthPage extends mixins(LoadingMixin, DefaultStoreMixin, Ap
   ];
 
   passwordRules = [
-    (value: string) => {
+    (value: string): boolean | string => {
       if (value) {
         return true;
       }

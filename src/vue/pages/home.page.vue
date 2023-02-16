@@ -5,6 +5,9 @@
     <p>
       For a guide how to get started with this project,<br/> check out the <a href="https://github.com/akoidan/vue3-vite-vue-class-component">documentation</a>
     </p>
+    <p>
+      For API and authorization demo <a href="https://dummyjson.com/docs/auth">dummyJSON</a> was used
+    </p>
   </div>
 </template>
 
@@ -32,4 +35,11 @@ img
 
 p
   margin-top: 16px
+
+h1
+  color: $color-green
+
+a
+  color: $color-green
+  text-decoration: underline
 </style>

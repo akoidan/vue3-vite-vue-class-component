@@ -15,24 +15,14 @@
     </v-sheet>
 
     <v-list>
-      <router-link :to="$pagesPath.main.home">
-        <v-list-item link>
-          <template #prepend>
-            <v-icon icon="mdi-view-dashboard"/>
-          </template>
-
-          <v-list-item-title>Home</v-list-item-title>
-        </v-list-item>
-      </router-link>
-      <router-link :to="$pagesPath.main.users">
-        <v-list-item link>
-          <template #prepend>
-            <v-icon icon="mdi-account-group"/>
-          </template>
-
-          <v-list-item-title>Users</v-list-item-title>
-        </v-list-item>
-      </router-link>
+      <nav-item text="Home" :link="$pagesPath.main.home" icon="mdi-view-dashboard"/>
+      <nav-item text="Users" :link="$pagesPath.main.users" icon="mdi-account-group"/>
+      <nav-item
+        text="Logout"
+        :link="''"
+        icon="mdi-logout"
+        @click="logout"
+      />
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -42,13 +32,20 @@ import {
   Component,
   Emit,
   Prop,
-  Vue,
 } from "vue-property-decorator";
-import {DefaultState} from "@/ts/store/default/default-store-instance";
+import {
+  DefaultState,
+  DefaultStoreMixin,
+} from "@/ts/store/default/default-store-instance";
 import type {AuthResponseDTO} from "@/ts/types/dto/auth.dto";
+import NavItem from "@/vue/molecules/nav-item.vue";
+import {sessionStore} from "@/ts/instances/session-instance";
+import {mixins} from "vue-class-component";
 
-@Component({})
-export default class NavDrawer extends Vue {
+@Component({
+  components: {NavItem}
+})
+export default class NavDrawer extends mixins(DefaultStoreMixin) {
   @Prop()
   modelValue!: boolean;
 
@@ -60,6 +57,11 @@ export default class NavDrawer extends Vue {
     return date;
   }
 
+  async logout(): Promise<void> {
+    await this.$router.push(this.$pagesPath.auth.signIn);
+    sessionStore.sessionToken = null;
+    this.defaultStore.setProfile(null);
+  }
 }
 </script>
 <!-- eslint-disable -->

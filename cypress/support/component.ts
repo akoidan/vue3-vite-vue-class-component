@@ -1,4 +1,4 @@
-import "./commands";
+import "./commands"; // eslint-disable-line import/no-unassigned-import
 
 import {mount} from "cypress/vue";
 

@@ -1,10 +1,10 @@
-import datepickerCalendar from "@/vue/atoms/datepicker-calendar.vue";
+import errorText from "@/vue/atoms/error-text";
 
 
 describe("<button />", () => {
   beforeEach(() => {
-    cy.mount(datepickerCalendar, {
-      props: {modelValue: 'blah'},
+    cy.mount(errorText, {
+      props: {error: "blah"},
     });
   });
 

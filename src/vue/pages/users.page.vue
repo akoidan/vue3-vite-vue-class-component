@@ -57,7 +57,7 @@ import type {
   UsersResponseDTO,
 } from "@/ts/types/dto/users.dto";
 import {PAGINATION_SIZE} from "@/ts/utils/consts";
-import LoadingSuspense from "@/vue/helpers/loading-suspense.vue";
+import LoadingSuspense from "@/vue/atoms/loading-suspense.vue";
 
 @Component({
   components: {LoadingSuspense}
@@ -65,17 +65,18 @@ import LoadingSuspense from "@/vue/helpers/loading-suspense.vue";
 export default class UsersPage extends mixins(LoadingMixin, DefaultStoreMixin, ApiMixin) {
   page: number = 1;
 
-  total: number = 10 ;
+  // default number of pages, i know that there are 100 users
+  total: number = 10; // eslint-disable-line @typescript-eslint/no-magic-numbers
 
   users: UserDTO[] = [];
 
-  async mounted() {
+  async mounted(): Promise<void> {
     await this.onPageChange();
   }
 
   @Watch('page')
   @DefaultGrowlError
-  async onPageChange() {
+  async onPageChange(): Promise<void> {
     const data: UsersResponseDTO = await this.api.getUsers(
       {
         limit: PAGINATION_SIZE,

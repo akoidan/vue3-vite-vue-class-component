@@ -6,7 +6,7 @@ import {
 
 import type {Logger} from "lines-logger";
 import type {SessionHolder} from "@/ts/types";
-import NotFoundPage from "@/vue/routes/not-found.page.vue";
+import NotFoundPage from "@/vue/pages/not-found.page.vue";
 import {mainPages} from "@/ts/router/pages/main-pages";
 import {pagesPath} from "@/ts/router/pages-path";
 import {authPages} from "@/ts/router/pages/auth-pages";

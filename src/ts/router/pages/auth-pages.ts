@@ -1,6 +1,6 @@
 import {pagesPath} from "@/ts/router/pages-path";
 import type {RouteRecordRaw} from "vue-router";
-import AuthPage from "@/vue/routes/auth.page.vue";
+import AuthPage from "@/vue/pages/auth.page.vue";
 
 
 export const authPages: RouteRecordRaw[] = [
