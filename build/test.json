@@ -1,5 +1,5 @@
 {
-  "BACKEND_ADDRESS": "https://dummyjson.com",
+  "BACKEND_ADDRESS": "http://localhost:8083",
   "IS_DEBUG": true,
   "PUBLIC_PATH": null,
   "BASE_URL": "http://localhost:8080",
