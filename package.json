@@ -7,6 +7,7 @@
     "start": "vite --force",
     "build": "vite build",
     "build:test": "VITE_BUILD_ENV=test vite build",
+    "build:example": "VITE_BUILD_ENV=example vite build",
     "build:run": "run-s -c build build:serve",
     "build:serve": "servor dist index.html 8080",
     "build:analyze": "ANALYZE=true vite build",
