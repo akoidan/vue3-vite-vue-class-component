@@ -26,10 +26,12 @@ jobs:
           path: |
             node_modules
           key: ${{ runner.os }}-v32-${{ hashFiles('yarn.lock') }}
-      - name: BUild
+      - name: install deps
         if: steps.cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
       - name: BUild
+        env:
+          VITE_BUILD_ENV: development
         run: yarn build
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
