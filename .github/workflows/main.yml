@@ -33,7 +33,7 @@ jobs:
         env:
           VITE_BUILD_ENV: development
         run: yarn build
-      - name: Deploy preview
+      - name: Deploy preview1
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: ./dist/
