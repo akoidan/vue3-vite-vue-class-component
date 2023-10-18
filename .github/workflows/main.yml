@@ -25,12 +25,12 @@ jobs:
         with:
           path: |
             node_modules
-            ~/.cache/ms-playwright
           key: ${{ runner.os }}-v32-${{ hashFiles('yarn.lock') }}
       - name: BUild
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+      - name: BUild
         run: yarn build
-        env:
-          VITE_BUILD_ENV: pr
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:
