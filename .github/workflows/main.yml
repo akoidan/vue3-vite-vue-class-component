@@ -37,5 +37,5 @@ jobs:
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: ./dist/
-          deploy-repository: akoidan/vue3-vite-vue-class-component
+          deploy-repository: akoidan/vue3-vite-pr-test
           token: ${{ secrets.PR_PAT_TOKEN }}
