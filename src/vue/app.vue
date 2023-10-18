@@ -20,6 +20,6 @@ export default class App extends Vue {
 <style lang="sass">
 @import "@/assets/sass/common.sass"
 body
-  margin: 2px
+  margin: 3px
 
 </style>
